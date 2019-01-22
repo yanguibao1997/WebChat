@@ -43,7 +43,7 @@
                 <h3 class="am-panel-title">在线列表 [<span id="onlinenum"></span>]</h3>
             </div>
             <ul class="am-list am-list-static am-list-striped" >
-                <li>图灵机器人 <button class="am-btn am-btn-xs am-btn-danger" id="tuling" data-am-button>未上线</button></li>
+               <%-- <li>图灵机器人 <button class="am-btn am-btn-xs am-btn-danger" id="tuling" data-am-button>未上线</button></li>--%>
             </ul>
             <ul class="am-list am-list-static am-list-striped" id="list">
             </ul>
@@ -189,6 +189,7 @@
                 content : message,
                 from : '${userid}',
                 to : to,      //接收人,如果没有则置空,如果有多个接收人则用,分隔
+                head: '${profilehead}',
                 time : getDateFull()
             },
             type : "message"
@@ -234,7 +235,7 @@
     function showChat(message){
         var to = message.to == null || message.to == ""? "全体成员" : message.to;   //获取接收人
         var isSef = '${userid}' == message.from ? "am-comment-flip" : "";   //如果是自己则显示在右边,他人信息显示在左边
-        var html = "<li class=\"am-comment "+isSef+" am-comment-primary\"><a href=\"#link-to-user-home\"><img width=\"48\" height=\"48\" class=\"am-comment-avatar\" alt=\"\" src=\"${ctx}/"+message.from+"/head\"></a><div class=\"am-comment-main\">\n" +
+        var html = "<li class=\"am-comment "+isSef+" am-comment-primary\"><a href=\"#link-to-user-home\"><img width=\"48\" height=\"48\" class=\"am-comment-avatar\" alt=\"\" src=http://image.shopping.com/group1/M00/00/00/wKiKyVxESS-AUr6dAAULgw8xXY8373.jpg></a><div class=\"am-comment-main\">\n" +
                 "<header class=\"am-comment-hd\"><div class=\"am-comment-meta\">   <a class=\"am-comment-author\" href=\"#link-to-user\">"+message.from+"</a> 发表于<time> "+message.time+"</time> 发送给: "+to+" </div></header><div class=\"am-comment-bd\"> <p>"+message.content+"</p></div></div></li>";
         $("#chat").append(html);
         $("#message").val("");  //清空输入区

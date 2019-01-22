@@ -28,7 +28,7 @@
             <div class="am-tabs-bd">
                 <div class="am-tab-panel am-fade am-in am-active" id="tab1">
                     <c:set value="${user}" var="user"/>
-                    <form class="am-form am-form-horizontal" id="information-form" action="${ctx}/${userid}/update" method="post" data-am-validator>
+                    <form class="am-form am-form-horizontal" id="information-form" action="${user.profilehead}" method="post" data-am-validator>
                         <div class="am-form-group">
                             <label for="userid" class="am-u-sm-2 am-form-label">用户名</label>
                             <div class="am-u-sm-10">
